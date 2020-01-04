@@ -1,0 +1,32 @@
+1.先安裝scrapy
+先pip install scrapy 安裝
+2.建一專案目錄
+scrapy startproject [myproject]
+ex:
+scrapy startproject dan_project
+3.cd 專案目錄
+ex:
+cd dan_project
+4. 建立爬蟲
+scrapy genspider [爬蟲名稱] [爬蟲⽬目標網址]
+ex:
+scrapy genspider ptt  https://www.ptt.cc/bbs/movie/index.htm
+5.修改爬蟲
+cd dan_project/spiders
+修改ptt.py的parse函數
+
+def parse(self, response):
+       #print(response.text)
+
+       res=BeautifulSoup(response.body)
+       print("*"*80)
+       for title in res.select('.r-ent'):
+           print(title.select(".title")[0].select("a"))
+       print("*"*80)   
+       pass
+６．執行爬蟲
+回到一開始建立專案目錄下
+cd dan_project
+執行
+scrapy crawl ptt
+查看結果或錯誤訊息，前面範例故意印一堆＊方便觀察
