@@ -64,8 +64,17 @@ class JSONPipeline(object):
         # 將暫存檔改為以日期為檔名的格式
         #print("Start:",self.start_crawl_datetime)
         #print("End:",self.end_crawl_datetime)
-        self.store_file_path = self.dir_path / '{}-{}.json'.format(self.start_crawl_datetime,
-                                                                   self.end_crawl_datetime)
+        
+        
+        if spider.target_file_name!=None:
+           trg_file_name="_"+spider.target_file_name
+        else:
+           trg_file_name=""
+            
+            
+        
+        self.store_file_path = self.dir_path / '{}-{}{}.json'.format(self.start_crawl_datetime,
+                                                                   self.end_crawl_datetime,trg_file_name)
         self.store_file_path = str(self.store_file_path)
 
         os.rename(self.runtime_file_path, self.store_file_path)

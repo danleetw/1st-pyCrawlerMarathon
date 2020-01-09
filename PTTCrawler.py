@@ -44,6 +44,12 @@ class PttcrawlerSpider(scrapy.Spider):
     _retries = 0
     MAX_RETRY = 3
 
+
+
+    def __init_(self,url=None,target_file_name=None):
+        self.url=url
+        self.target_file_name=target_file_name
+        
     #---發動Request
     def start_requests(self):
         
