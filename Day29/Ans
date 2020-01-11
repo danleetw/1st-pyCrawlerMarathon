@@ -1,0 +1,7 @@
+這次假設我們的爬蟲可以根據外部選項 board 來決定要爬 PTT 的哪一個版
+
+外部可以給予參數決定目標的版 (e.g. Gossiping, NBA, …) 
+
+爬蟲內部處理文章列表與內容
+
+透過 Item Pipeline 將結果存成 JSON
